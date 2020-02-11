@@ -1,7 +1,7 @@
 import requests as r
 import json as js
 import csv
-import OS
+import os
 import datetime
 # CPU运行时间开始
 start_CPU=time.clock()
