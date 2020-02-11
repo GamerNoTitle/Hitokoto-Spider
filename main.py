@@ -26,14 +26,14 @@ i=1
 for i in range(num):
     res = r.get('https://international.v1.hitokoto.cn/',timeout=60) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
     data=res.json() # 将获取到的结果转为json字符串
-    t=1
-    for t in range(i):
-        if data["id"]==ids[t]:  # ID已经存在，即已经抓到过，这地方可能会报BUG，目前没修（数组越限BUG）
-            break
-        else:
-            t=t+1   # 自增
-            if t==i:
-                ids.append(data["id"])  
+    # t=1
+    # for t in range(i):
+    #     if data["id"]==ids[t]:  # ID已经存在，即已经抓到过，这地方可能会报BUG，目前没修（数组越限BUG）
+    #         break
+    #     else:
+    #         t=t+1   # 自增
+    #         if t==i:
+    #             ids.append(data["id"])  
     if data["type"]== "a": sorts=("Anime")  # 自动把分类码还原为分类
     if data["type"]== "b": sorts=("Comic")
     if data["type"]== "c": sorts=("Game")
