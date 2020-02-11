@@ -6,12 +6,12 @@ import datetime
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
-    with open(path,"w+",newline="") as file:    # 打开文件，也相当于一个回车，避免覆盖文档
+    with open(path,"w+",newline="",encoding="utf8") as file:    # 打开文件，也相当于一个回车，避免覆盖文档
         csv_file = csv.writer(file)
         head = ["id","sort","hitokoto"] # 创建csv表头
         csv_file.writerow(head)
 def append_csv(path):
-    with open(path,"a+",newline='') as file:
+    with open(path,"a+",newline='',encoding="utf8") as file:
         csv_file = csv.writer(file)
         data = [temp]
         csv_file.writerows(data)
