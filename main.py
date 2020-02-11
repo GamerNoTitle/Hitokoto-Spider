@@ -3,8 +3,6 @@ import json as js
 import csv
 import os
 import datetime
-# CPU运行时间开始
-start_CPU=time.clock()
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
@@ -49,8 +47,6 @@ for i in range(num):
     print("已完成数量："+str(i+1))
 
 #赋予现在时间
-end_CPU=time.clock()
 end_Pro=datetime.datetime.now()
 #显示执行时间
-print("CPU跑了:"+''+str(end_CPU-start_CPU))
 print("程序跑了:"+''+str(end_Pro-start_Pro))
