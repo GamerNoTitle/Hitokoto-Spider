@@ -30,13 +30,13 @@ for i in range(num):
             t=t+1   # 自增
             if t==i:
                 ids.append(data["id"])
-                if data["type"]== "a": sorts=("Anime")
-                if data["type"]== "b": sorts=("Comic")
-                if data["type"]== "c": sorts=("Game")
-                if data["type"]== "d": sorts=("Novel")
-                if data["type"]== "e": sorts=("Myself")
-                if data["type"]== "f": sorts=("Internet")
-                if data["type"]== "g": sorts=("Other")
+    if data["type"]== "a": sorts=("Anime")
+    if data["type"]== "b": sorts=("Comic")
+    if data["type"]== "c": sorts=("Game")
+    if data["type"]== "d": sorts=("Novel")
+    if data["type"]== "e": sorts=("Myself")
+    if data["type"]== "f": sorts=("Internet")
+    if data["type"]== "g": sorts=("Other")
     temp=[data["id"],sorts,data["hitokoto"]]
     print(res.text)
     append_csv(path)
