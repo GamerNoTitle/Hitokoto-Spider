@@ -44,9 +44,5 @@ for i in range(num):
     temp=[data["id"],sorts,data["hitokoto"]]
     print(res.text)
     append_csv(path)
-    print("已完成数量："+str(i+1))
-
-#赋予现在时间
-end_Pro=datetime.datetime.now()
-#显示执行时间
-print("程序跑了:"+''+str(end_Pro-start_Pro))
+    end_Pro=datetime.datetime.now()
+    print("已完成数量："+str(i+1)+'，已经用时：'+str(end_Pro-start_Pro))
