@@ -38,3 +38,4 @@ for i in range num:
                 if data["type"]== f: sorts=("Internet")
                 if data["type"]== g: sorts=("Other")
     temp=[data["id"],sorts,data["hitokoto"]]
+    append_csv(path)
