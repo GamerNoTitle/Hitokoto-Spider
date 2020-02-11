@@ -24,7 +24,7 @@ sorts=""
 ids=['0']
 i=1
 for i in range(num):
-    res = r.get('https://international.v1.hitokoto.cn/') # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+    res = r.get('https://international.v1.hitokoto.cn/',timeout=60) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
     data=res.json() # 将获取到的结果转为json字符串
     t=1
     for t in range(i):
