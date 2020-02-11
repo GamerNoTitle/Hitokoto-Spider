@@ -30,7 +30,7 @@ for i in range(num):
             t=t+1   # 自增
             if t==i:
                 ids.append(data["id"])
-    if data["type"]== "a": sorts=("Anime")
+    if data["type"]== "a": sorts=("Anime")  # 自动把分类码还原为分类
     if data["type"]== "b": sorts=("Comic")
     if data["type"]== "c": sorts=("Game")
     if data["type"]== "d": sorts=("Novel")
