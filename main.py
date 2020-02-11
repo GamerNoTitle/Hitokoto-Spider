@@ -1,6 +1,12 @@
 import requests as r
 import json as js
 import csv
+import OS
+import datetime
+# CPU运行时间开始
+start_CPU=time.clock()
+# 程序运行时间开始
+start_Pro=datetime.datetime.now()
 def create_csv(path):
     with open(path,"w+",newline="") as file:    # 打开文件，也相当于一个回车，避免覆盖文档
         csv_file = csv.writer(file)
@@ -41,3 +47,10 @@ for i in range(num):
     print(res.text)
     append_csv(path)
     print("已完成数量："+str(i+1))
+
+#赋予现在时间
+end_CPU=time.clock()
+end_Pro=datetime.datetime.now()
+#显示执行时间
+print("CPU跑了:"+''+str(end_CPU-start_CPU))
+print("程序跑了:"+''+str(end_Pro-start_Pro))
