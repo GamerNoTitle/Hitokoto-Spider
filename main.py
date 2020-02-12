@@ -31,11 +31,8 @@ for i in range(num):
     temp_minus=len(temp)-1
     if temp_minus!=0:
         t=1
+        print("正在检测是否抓取过结果……")
         for t in range(len(temp)):
-            print("正在检测是否抓取过结果……")
-            # print(t)
-            # print(len(temp))
-            # print(len(temp)-1)
             if(data["id"]==temp[t]):
                 print("发现已经抓取到的结果，正在丢弃……")
                 i=i-1
@@ -70,12 +67,3 @@ for i in range(num):
         temp.append(data["id"])
         end_Pro=datetime.datetime.now()
         print("已完成数量："+str(i+1)+'，已经用时：'+str(end_Pro-start_Pro))
-
-    # t=1
-    # for t in range(i):
-    #     if data["id"]==ids[t]:  # ID已经存在，即已经抓到过，这地方可能会报BUG，目前没修（数组越限BUG）
-    #         break
-    #     else:
-    #         t=t+1   # 自增
-    #         if t==i:
-    #             ids.append(data["id"])  
