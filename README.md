@@ -11,6 +11,8 @@ $ pip install requests
 
 **<font color=#FF0000>如果你要用Excel查看文件，请务必先用vscode之类的软件将文件以UTF-8的编码方式打开，以gbk编码保存，否则会乱码！！！</font>**
 
+开发日记已发布到http://bili33.top/2020/02/11/Hitokoto-Spider/
+
 # 进度一览
 - [x] 获取一言内容
 - [x] 导出为csv文件
