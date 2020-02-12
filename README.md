@@ -13,6 +13,8 @@ $ pip install requests
 
 开发日记已发布到http://bili33.top/2020/02/11/Hitokoto-Spider/
 
+高中生无聊时做的，望大佬指教！
+
 # 进度一览
 - [x] 获取一言内容
 - [x] 导出为csv文件
