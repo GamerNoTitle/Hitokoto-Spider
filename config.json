@@ -1,6 +1,0 @@
-{
-    "url": "https://international.v1.hitokoto.cn/", // 抓取的地址，推荐用国际节点
-    "times": 10,    // 抓取次数
-    "output": "Hitokoto.csv",   // 输出文件
-    "wait_time": 0, // 每次抓取后的等待时间，因为一言有QPS限制，所以建议设置一下，单位是秒
-}
