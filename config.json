@@ -6,5 +6,5 @@
     "from": false,
     "from_who": false,
     "creator": false,
-    "created_at": true
+    "created_at": false
 }
