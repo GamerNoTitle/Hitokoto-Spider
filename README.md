@@ -25,11 +25,17 @@ $ pip install requests
 将``path``后面的内容修改为你要输出的文件路径
 
 ``times``修改为抓取次数
+
 ``delay``修改为每次抓取完成后等待的时长，单位为秒（参考一言的QPS做的这个选项）
+
 ``timeout``改为http请求超时时间，单位为秒
+
 ``from``表示来源，这个来源是作品，只支持true和false
+
 ``from_who``表示来源，这个来源是人，指的是说这句话的人，只支持true和false，目前开启会报KeyError，正在修复！
+
 ``creator``表示该条目的创建者，将返回创建者的昵称，只支持true和false
+
 ``created_at``表示该条目提交的时间，一言返回的值为时间戳，我将它转成了``YYYY-MM-DD HH-MM-SS``的格式
 
 使用了UTF8的编码方式存储csv文件，所以gbk解码是无效的，会乱码，之所以采用UTF8是因为有些字符gbk处理不了……
