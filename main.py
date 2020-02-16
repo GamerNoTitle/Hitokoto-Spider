@@ -5,37 +5,53 @@ import os
 import datetime
 from array import array
 import time
-print("本项目由Github@GamerNoTitle制作")
-print("------------------------------")
+print("欢迎使用一言爬虫！")
+print("本爬虫由GamerNoTitle制作")
+print("欢迎访问我的网站http://bili33.top")
+print("Welcome to use Hitokoto Spider!")
+print("This project is made by GamerNoTitle")
+print("Welcome to visit my personal website http://bili33.top")
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
     with open(path,"w+",newline="",encoding="utf8") as file:    # 打开文件，也相当于一个回车，避免覆盖文档
         csv_file = csv.writer(file)
-        head = ["id","sort","hitokoto"] # 创建csv表头
+        head = heads # 创建csv表头
         csv_file.writerow(head)
 def append_csv(path):
     with open(path,"a+",newline='',encoding="utf8") as file:
         csv_file = csv.writer(file)
         data = [inputs]
         csv_file.writerows(data)
-print("请输入文件输出名（请自行输入后缀，文件以csv的方式保存）：")
-path=input()    # 输出文件
-print("请输入抓取的数量，如果要抓取全部请到https://hitokoto.cn/status查看现在的一言总数并填入：")
-num=int(input()) # 抓取数量
-print("延迟等待，因为网站有QPS限制，所以说建议设置一下，如果无需等待直接填入0（单位：秒）：")
-delay=int(input())  # 自定义延迟
+def read_config():
+    with open("config.json") as json_file:
+        config = js.load(json_file)
+    return config
+conf = read_config()
+path = conf["path"]
+heads = ["id","sort","hitokoto"]
+num = int(conf["times"])
+delay = int(conf["delay"])
+timeout = int(conf['timeout'])
+who=False
+if(conf['from'] == True): heads.append("from")
+if(conf['from_who'] == True): 
+    heads.append("from_who")
+    who=True
+if(conf['creator'] == True): heads.append('creator')
+if(conf['created_at'] == True): heads.append("created_at")
 create_csv(path)
 sorts=""
 i=1
 temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
 while True:
-    if(i==num):
+    if(i==num+1):   # 如果不加1那么最后一次将无法运行
         break
     time.sleep(delay)
     print("----------------------------------------------------------")
     print("正在获取新的一言……")
-    res = r.get('https://international.v1.hitokoto.cn/',timeout=60) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+    print("Fetching new Hitokoto......")
+    res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
     data=res.json() # 将获取到的结果转为json字符串
     temp_minus=len(temp)-1
     if temp_minus!=0:
@@ -55,6 +71,12 @@ while True:
                 if data["type"]== "f": sorts=("Internet")
                 if data["type"]== "g": sorts=("Other")
                 inputs=[data["id"],sorts,data["hitokoto"]]
+                if(conf['from'] == True): inputs.append(data['from'])
+                if(conf["from_who"] == True): inputs.append(data["from_who"])
+                if(conf['creator'] == True): inputs.append(data['creator'])
+                timeArray = time.localtime(int(data['created_at']))
+                created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+                if(conf['created_at'] == True): inputs.append(created_at)
                 # print(res.text)   # 输出一言，如需要把最前面的#去掉即可
                 append_csv(path)
                 temp.append(data["id"])
@@ -71,6 +93,12 @@ while True:
         if data["type"]== "f": sorts=("Internet")
         if data["type"]== "g": sorts=("Other")
         inputs=[data["id"],sorts,data["hitokoto"]]
+        if(conf['from'] == True): inputs.append(data['from'])
+        if(conf["from_who"] == True): inputs.append(data["from_who"])
+        if(conf['creator'] == True): inputs.append(data['creator'])
+        timeArray = time.localtime(int(data['created_at']))
+        created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+        if(conf['created_at'] == True): inputs.append(created_at)
         # print(res.text) # 输出一言，如需要把最前面的#去掉即可
         append_csv(path)
         temp.append(data["id"])
