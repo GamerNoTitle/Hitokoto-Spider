@@ -5,12 +5,6 @@ import os
 import datetime
 from array import array
 import time
-# print("欢迎使用一言爬虫！")
-# print("本爬虫由GamerNoTitle制作")
-# print("欢迎访问我的网站http://bili33.top")
-# print("Welcome to use Hitokoto Spider!")
-# print("This project is made by GamerNoTitle")
-# print("Welcome to visit my personal website http://bili33.top")
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
