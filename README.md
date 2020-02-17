@@ -1,5 +1,8 @@
 # Hitokoto-Spider
+###### 网易云音乐爬虫请往这里走https://github.com/GamerNoTitle/Netease-Comment-Spider
+
 这个项目是与一言的库相关的项目，一直想用python来爬取一言的文本库，所以就有了这个项目。本项目正在开发，需要用到requests库，第一次使用请输入
+
 ```bash
 $ pip install requests
 ```
