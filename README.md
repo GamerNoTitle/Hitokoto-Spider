@@ -5,6 +5,8 @@ $ pip install requests
 ```
 来安装所需要的python库！爬取的链接为：https://international.v1.hitokoto.cn/
 
+已修复KeyError的BUG！
+
 ## 打开方式
 
 首先，请到config.json修改你的配置，默认的配置如下：
@@ -35,13 +37,13 @@ $ pip install requests
 
 ``from``表示来源，这个来源是作品，只支持true和false
 
-``from_who``表示来源，这个来源是人，指的是说这句话的人，只支持true和false，目前开启会报KeyError，正在修复！
+``from_who``表示来源，这个来源是人，指的是说这句话的人，只支持true和false
 
 ``creator``表示该条目的创建者，将返回创建者的昵称，只支持true和false
 
-``creator_uid``表示该条目创建者的UID，将返回创建者的UID，只支持true和false，目前开启会报KeyError，正在修复！
+``creator_uid``表示该条目创建者的UID，将返回创建者的UID，只支持true和false
 
-``reviewer``说实话这个参数我都不知道返回的是什么值，先留着吧……只支持true和false，目前开启会报KeyError，正在修复！
+``reviewer``说实话这个参数我都不知道返回的是什么值，先留着吧……只支持true和false
 
 ``uuid``表示条目创建者的uuid，将返回条目创建者的uuid，只支持true和false
 

@@ -72,11 +72,27 @@ while True:
                 if data["type"]== "g": sorts=("Other")
                 inputs=[data["id"],sorts,data["hitokoto"]]
                 if(conf['from'] == True): inputs.append(data['from'])
-                if(conf["from_who"] == True): inputs.append(data["from_who"])
+                if(conf["from_who"] == True): 
+                    try:
+                        inputs.append(data["from_who"])
+                    except KeyError:
+                        inputs.append("null")
                 if(conf['creator'] == True): inputs.append(data['creator'])
-                if(conf['creator_uid'] == True): inputs.append(data['creator_uid'])
-                if(conf['reviewer'] == True): inputs.append(data['reviewer'])
-                if(conf['uuid'] == True): inputs.append(data['uuid'])
+                if(conf['creator_uid'] == True):
+                    try: 
+                        inputs.append(data['creator_uid'])
+                    except KeyError:
+                        inputs.append("null")
+                if(conf['reviewer'] == True):
+                    try:
+                        inputs.append(int(data['reviewer']))
+                    except KeyError:
+                        inputs.append('0')
+                if(conf['uuid'] == True):
+                    try:
+                        inputs.append(data['uuid'])
+                    except KeyError:
+                        inputs.append("null")
                 if(conf['creator'] == True): inputs.append(data['creator'])
                 timeArray = time.localtime(int(data['created_at']))
                 created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
@@ -98,11 +114,28 @@ while True:
         if data["type"]== "g": sorts=("Other")
         inputs=[data["id"],sorts,data["hitokoto"]]
         if(conf['from'] == True): inputs.append(data['from'])
-        if(conf["from_who"] == True): inputs.append(data["from_who"])
+        if(conf["from_who"] == True): 
+            try:
+                inputs.append(data["from_who"])
+            except KeyError:
+                inputs.append("null")
         if(conf['creator'] == True): inputs.append(data['creator'])
-        if(conf['creator_uid'] == True): inputs.append(str(data['creator_uid']))
-        if(conf['reviewer'] == True): inputs.append(str(data['reviewer']))
-        if(conf['uuid'] == True): inputs.append(data['uuid'])
+        if(conf['creator_uid'] == True):
+            try: 
+                inputs.append(data['creator_uid'])
+            except KeyError:
+                inputs.append("null")
+        if(conf['reviewer'] == True):
+            try:
+                inputs.append(int(data['reviewer']))
+            except KeyError:
+                inputs.append('0')
+        if(conf['uuid'] == True):
+            try:
+                inputs.append(data['uuid'])
+            except KeyError:
+                inputs.append("null")
+        if(conf['creator'] == True): inputs.append(data['creator'])
         timeArray = time.localtime(int(data['created_at']))
         created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         if(conf['created_at'] == True): inputs.append(created_at)
