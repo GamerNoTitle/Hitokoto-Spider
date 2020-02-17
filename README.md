@@ -18,6 +18,9 @@ $ pip install requests
     "from": false,
     "from_who": false,
     "creator": false,
+    "creator_uid": false,
+    "reviewer": false,
+    "uuid": false,
     "created_at": false
 }
 ```
@@ -35,6 +38,12 @@ $ pip install requests
 ``from_who``表示来源，这个来源是人，指的是说这句话的人，只支持true和false，目前开启会报KeyError，正在修复！
 
 ``creator``表示该条目的创建者，将返回创建者的昵称，只支持true和false
+
+``creator_uid``表示该条目创建者的UID，将返回创建者的UID，只支持true和false，目前开启会报KeyError，正在修复！
+
+``reviewer``说实话这个参数我都不知道返回的是什么值，先留着吧……只支持true和false，目前开启会报KeyError，正在修复！
+
+``uuid``表示条目创建者的uuid，将返回条目创建者的uuid，只支持true和false
 
 ``created_at``表示该条目提交的时间，一言返回的值为时间戳，我将它转成了``YYYY-MM-DD HH-MM-SS``的格式
 

@@ -6,5 +6,8 @@
     "from": false,
     "from_who": false,
     "creator": false,
+    "creator_uid": false,
+    "reviewer": false,
+    "uuid": false,
     "created_at": false
 }

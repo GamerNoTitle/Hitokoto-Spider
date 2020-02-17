@@ -5,12 +5,12 @@ import os
 import datetime
 from array import array
 import time
-print("欢迎使用一言爬虫！")
-print("本爬虫由GamerNoTitle制作")
-print("欢迎访问我的网站http://bili33.top")
-print("Welcome to use Hitokoto Spider!")
-print("This project is made by GamerNoTitle")
-print("Welcome to visit my personal website http://bili33.top")
+# print("欢迎使用一言爬虫！")
+# print("本爬虫由GamerNoTitle制作")
+# print("欢迎访问我的网站http://bili33.top")
+# print("Welcome to use Hitokoto Spider!")
+# print("This project is made by GamerNoTitle")
+# print("Welcome to visit my personal website http://bili33.top")
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
@@ -33,12 +33,12 @@ heads = ["id","sort","hitokoto"]
 num = int(conf["times"])
 delay = int(conf["delay"])
 timeout = int(conf['timeout'])
-who=False
 if(conf['from'] == True): heads.append("from")
-if(conf['from_who'] == True): 
-    heads.append("from_who")
-    who=True
+if(conf['from_who'] == True): heads.append("from_who")
 if(conf['creator'] == True): heads.append('creator')
+if(conf['creator_uid'] == True): heads.append('creator_uid')
+if(conf['reviewer'] == True): heads.append('reviewer')
+if(conf['uuid'] == True): heads.append('uuid')
 if(conf['created_at'] == True): heads.append("created_at")
 create_csv(path)
 sorts=""
@@ -74,6 +74,10 @@ while True:
                 if(conf['from'] == True): inputs.append(data['from'])
                 if(conf["from_who"] == True): inputs.append(data["from_who"])
                 if(conf['creator'] == True): inputs.append(data['creator'])
+                if(conf['creator_uid'] == True): inputs.append(data['creator_uid'])
+                if(conf['reviewer'] == True): inputs.append(data['reviewer'])
+                if(conf['uuid'] == True): inputs.append(data['uuid'])
+                if(conf['creator'] == True): inputs.append(data['creator'])
                 timeArray = time.localtime(int(data['created_at']))
                 created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 if(conf['created_at'] == True): inputs.append(created_at)
@@ -96,6 +100,9 @@ while True:
         if(conf['from'] == True): inputs.append(data['from'])
         if(conf["from_who"] == True): inputs.append(data["from_who"])
         if(conf['creator'] == True): inputs.append(data['creator'])
+        if(conf['creator_uid'] == True): inputs.append(str(data['creator_uid']))
+        if(conf['reviewer'] == True): inputs.append(str(data['reviewer']))
+        if(conf['uuid'] == True): inputs.append(data['uuid'])
         timeArray = time.localtime(int(data['created_at']))
         created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         if(conf['created_at'] == True): inputs.append(created_at)
