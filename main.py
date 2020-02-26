@@ -58,39 +58,50 @@ while True:
             elif(t==len(temp)-1):
                 print("未抓取过的结果，正在存入文件……")
                 if data["type"]== "a": sorts=("Anime")  # 自动把分类码还原为分类
-                if data["type"]== "b": sorts=("Comic")
-                if data["type"]== "c": sorts=("Game")
-                if data["type"]== "d": sorts=("Novel")
-                if data["type"]== "e": sorts=("Myself")
-                if data["type"]== "f": sorts=("Internet")
-                if data["type"]== "g": sorts=("Other")
+                elif data["type"]== "b": sorts=("Comic")
+                elif data["type"]== "c": sorts=("Game")
+                elif data["type"]== "d": sorts=("Novel")
+                elif data["type"]== "e": sorts=("Myself")
+                elif data["type"]== "f": sorts=("Internet")
+                elif data["type"]== "g": sorts=("Other")
+                elif data['type']== 'h': sorts=("Movie")
+                elif data['type']== 'i': sorts=("Poem")
+                elif data['type']== 'j': sorts=("Netease")
+                elif data['type']== 'k': sorts=("Philosophy")
+                elif data['type']== 'l': sorts=('Intelligent')
+                else: sorts=('Unknown')
                 inputs=[data["id"],sorts,data["hitokoto"]]
-                if(conf['from'] == True): inputs.append(data['from'])
-                if(conf["from_who"] == True): 
+                if(conf['from']): inputs.append(data['from'])
+                if(conf["from_who"]): 
                     try:
                         inputs.append(data["from_who"])
                     except KeyError:
                         inputs.append("null")
-                if(conf['creator'] == True): inputs.append(data['creator'])
-                if(conf['creator_uid'] == True):
+                if(conf['creator']): inputs.append(data['creator'])
+                if(conf['creator_uid']):
                     try: 
                         inputs.append(data['creator_uid'])
                     except KeyError:
                         inputs.append("null")
-                if(conf['reviewer'] == True):
+                if(conf['reviewer']):
                     try:
                         inputs.append(int(data['reviewer']))
                     except KeyError:
                         inputs.append('0')
-                if(conf['uuid'] == True):
+                if(conf['uuid']):
                     try:
                         inputs.append(data['uuid'])
                     except KeyError:
                         inputs.append("null")
-                if(conf['creator'] == True): inputs.append(data['creator'])
+                if(conf['creator']): inputs.append(data['creator'])
                 timeArray = time.localtime(int(data['created_at']))
                 created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
-                if(conf['created_at'] == True): inputs.append(created_at)
+                # try:
+                #     timeArray = time.localtime(int(data['created_at']))
+                #     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+                # except ValueError:
+                #     created_at = 
+                if(conf['created_at']): inputs.append(created_at)
                 # print(res.text)   # 输出一言，如需要把最前面的#去掉即可
                 append_csv(path)
                 temp.append(data["id"])
@@ -100,39 +111,45 @@ while True:
                 break
     else:
         if data["type"]== "a": sorts=("Anime")  # 自动把分类码还原为分类
-        if data["type"]== "b": sorts=("Comic")
-        if data["type"]== "c": sorts=("Game")
-        if data["type"]== "d": sorts=("Novel")
-        if data["type"]== "e": sorts=("Myself")
-        if data["type"]== "f": sorts=("Internet")
-        if data["type"]== "g": sorts=("Other")
+        elif data["type"]== "b": sorts=("Comic")
+        elif data["type"]== "c": sorts=("Game")
+        elif data["type"]== "d": sorts=("Novel")
+        elif data["type"]== "e": sorts=("Myself")
+        elif data["type"]== "f": sorts=("Internet")
+        elif data["type"]== "g": sorts=("Other")
+        elif data['type']== 'h': sorts=("Movie")
+        elif data['type']== 'i': sorts=("Poem")
+        elif data['type']== 'j': sorts=("Netease")
+        elif data['type']== 'k': sorts=("Philosophy")
+        elif data['type']== 'l': sorts=('Intelligent')
+        else: sorts=('Unknown')
         inputs=[data["id"],sorts,data["hitokoto"]]
-        if(conf['from'] == True): inputs.append(data['from'])
-        if(conf["from_who"] == True): 
+        if(conf['from']): inputs.append(data['from'])
+        if(conf["from_who"]): 
             try:
                 inputs.append(data["from_who"])
             except KeyError:
                 inputs.append("null")
-        if(conf['creator'] == True): inputs.append(data['creator'])
-        if(conf['creator_uid'] == True):
+        if(conf['creator']): inputs.append(data['creator'])
+        if(conf['creator_uid']):
             try: 
                 inputs.append(data['creator_uid'])
             except KeyError:
                 inputs.append("null")
-        if(conf['reviewer'] == True):
+        if(conf['reviewer']):
             try:
                 inputs.append(int(data['reviewer']))
             except KeyError:
                 inputs.append('0')
-        if(conf['uuid'] == True):
+        if(conf['uuid']):
             try:
                 inputs.append(data['uuid'])
             except KeyError:
                 inputs.append("null")
-        if(conf['creator'] == True): inputs.append(data['creator'])
+        if(conf['creator']): inputs.append(data['creator'])
         timeArray = time.localtime(int(data['created_at']))
         created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
-        if(conf['created_at'] == True): inputs.append(created_at)
+        if(conf['created_at']): inputs.append(created_at)
         # print(res.text) # 输出一言，如需要把最前面的#去掉即可
         append_csv(path)
         temp.append(data["id"])

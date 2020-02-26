@@ -8,7 +8,7 @@ $ pip install requests
 ```
 来安装所需要的python库！爬取的链接为：https://international.v1.hitokoto.cn/
 
-已修复KeyError的BUG！
+已加入一言最新分类类别（#1），并简化代码
 
 ## 打开方式
 
