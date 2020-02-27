@@ -100,9 +100,8 @@ while True:
                     timeArray = time.localtime(int(data['created_at']))
                     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 except ValueError:
-                    timeArray = (time.localtime((int(data['created_at'])/100)))
-                    created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
-                except KeyError:
+                    created_at = ('null')
+                except OSError:
                     created_at = ('null')
                 if(conf['created_at']): inputs.append(created_at)
                 # print(res.text)   # 输出一言，如需要把最前面的#去掉即可
@@ -154,9 +153,8 @@ while True:
             timeArray = time.localtime(int(data['created_at']))
             created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         except ValueError:
-            timeArray = (time.localtime((int(data['created_at'])/100)))
-            created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
-        except KeyError:
+            created_at = ('null')
+        except OSError:
             created_at = ('null')
         if(conf['created_at']): inputs.append(created_at)
         # print(res.text) # 输出一言，如需要把最前面的#去掉即可
