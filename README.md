@@ -26,7 +26,9 @@ $ pip install requests
     "creator_uid": false,
     "reviewer": false,
     "uuid": false,
-    "created_at": false
+    "created_at": false,
+    "duplicate": false,
+    "print": false
 }
 ```
 
@@ -51,6 +53,10 @@ $ pip install requests
 ``uuid``表示条目创建者的uuid，将返回条目创建者的uuid，只支持true和false
 
 ``created_at``表示该条目提交的时间，一言返回的值为时间戳，我将它转成了``YYYY-MM-DD HH-MM-SS``的格式
+
+``duplicate``表示是否存入重复结果，设置为true则存入，设置为false则不存入，只支持true和false
+
+``print``表示是否每次打印抓取到的结果在控制台，只支持true和false
 
 使用了UTF8的编码方式存储csv文件，所以gbk解码是无效的，会乱码，之所以采用UTF8是因为有些字符gbk处理不了……
 
