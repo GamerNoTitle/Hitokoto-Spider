@@ -73,4 +73,4 @@ $ pip install requests
 - [ ] 打印抓取结果选项  [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [ ] 重复率显示        [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [ ] 重复抓取次数显示  [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
-- [ ] GUI支持           [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [ ] GUI支持
