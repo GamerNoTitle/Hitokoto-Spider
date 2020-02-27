@@ -75,8 +75,8 @@ $ pip install requests
 - [x] 自定义抓取数
 - [x] 自定义延时
 - [x] json配置文件支持
-- [ ] 重复条目存入选项  [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
-- [x] 打印抓取结果选项  [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
-- [x] 重复率显示        [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
-- [x] 重复抓取次数显示  [#3](/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [ ] 重复条目存入选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [x] 打印抓取结果选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [x] 重复率显示        [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [x] 重复抓取次数显示  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [ ] GUI支持
