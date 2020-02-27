@@ -94,15 +94,14 @@ while True:
                     except KeyError:
                         inputs.append("null")
                 if(conf['creator']): inputs.append(data['creator'])
-                # timeArray = time.localtime(int(data['created_at']))
-                # created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 try:
                     timeArray = time.localtime(int(data['created_at']))
                     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 except ValueError:
                     created_at = ('null')
                 except OSError:
-                    created_at = ('null')
+                    timeArray = time.localtime(int(data['created_at'])/1000)
+                    created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 if(conf['created_at']): inputs.append(created_at)
                 # print(res.text)   # 输出一言，如需要把最前面的#去掉即可
                 append_csv(path)
@@ -155,7 +154,8 @@ while True:
         except ValueError:
             created_at = ('null')
         except OSError:
-            created_at = ('null')
+            timeArray = time.localtime(int(data['created_at'])/1000)
+            created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         if(conf['created_at']): inputs.append(created_at)
         # print(res.text) # 输出一言，如需要把最前面的#去掉即可
         append_csv(path)
