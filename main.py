@@ -27,13 +27,13 @@ heads = ["id","sort","hitokoto"]
 num = int(conf["times"])
 delay = int(conf["delay"])
 timeout = int(conf['timeout'])
-if(conf['from'] == True): heads.append("from")
-if(conf['from_who'] == True): heads.append("from_who")
-if(conf['creator'] == True): heads.append('creator')
-if(conf['creator_uid'] == True): heads.append('creator_uid')
-if(conf['reviewer'] == True): heads.append('reviewer')
-if(conf['uuid'] == True): heads.append('uuid')
-if(conf['created_at'] == True): heads.append("created_at")
+if(conf['from']): heads.append("from")
+if(conf['from_who']): heads.append("from_who")
+if(conf['creator']): heads.append('creator')
+if(conf['creator_uid']): heads.append('creator_uid')
+if(conf['reviewer']): heads.append('reviewer')
+if(conf['uuid']): heads.append('uuid')
+if(conf['created_at']): heads.append("created_at")
 create_csv(path)
 sorts=""
 i=1
@@ -94,13 +94,16 @@ while True:
                     except KeyError:
                         inputs.append("null")
                 if(conf['creator']): inputs.append(data['creator'])
-                timeArray = time.localtime(int(data['created_at']))
-                created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
-                # try:
-                #     timeArray = time.localtime(int(data['created_at']))
-                #     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
-                # except ValueError:
-                #     created_at = 
+                # timeArray = time.localtime(int(data['created_at']))
+                # created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+                try:
+                    timeArray = time.localtime(int(data['created_at']))
+                    created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+                except ValueError:
+                    timeArray = (time.localtime(int(data['created_at']))/100)
+                    created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+                except KeyError:
+                    created_at = ('null')
                 if(conf['created_at']): inputs.append(created_at)
                 # print(res.text)   # 输出一言，如需要把最前面的#去掉即可
                 append_csv(path)
@@ -147,8 +150,14 @@ while True:
             except KeyError:
                 inputs.append("null")
         if(conf['creator']): inputs.append(data['creator'])
-        timeArray = time.localtime(int(data['created_at']))
-        created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+            try:
+                timeArray = time.localtime(int(data['created_at']))
+                created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+            except ValueError:
+                timeArray = (time.localtime(int(data['created_at']))/100)
+                created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+            except KeyError:
+                created_at = ('null')
         if(conf['created_at']): inputs.append(created_at)
         # print(res.text) # 输出一言，如需要把最前面的#去掉即可
         append_csv(path)
