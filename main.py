@@ -100,7 +100,7 @@ while True:
                     timeArray = time.localtime(int(data['created_at']))
                     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 except ValueError:
-                    timeArray = (time.localtime(int(data['created_at']))/100)
+                    timeArray = (time.localtime((int(data['created_at'])/100)))
                     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
                 except KeyError:
                     created_at = ('null')
@@ -154,7 +154,7 @@ while True:
             timeArray = time.localtime(int(data['created_at']))
             created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         except ValueError:
-            timeArray = (time.localtime(int(data['created_at']))/100)
+            timeArray = (time.localtime((int(data['created_at'])/100)))
             created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
         except KeyError:
             created_at = ('null')
