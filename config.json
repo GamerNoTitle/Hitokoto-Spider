@@ -9,5 +9,7 @@
     "creator_uid": false,
     "reviewer": false,
     "uuid": false,
-    "created_at": false
+    "created_at": false,
+    "duplicate": false,
+    "print": false
 }
