@@ -17,7 +17,7 @@ $ pip install requests
 ```json
 {
     "path": "Hitokoto.csv",
-    "times": 100,
+    "times": 3,
     "delay": 0,
     "timeout": 60,
     "retry": 3,
