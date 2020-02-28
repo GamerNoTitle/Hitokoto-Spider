@@ -39,6 +39,7 @@ sorts=""
 i=1
 dup=0
 temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
+all=0   # 总抓取次数
 while True:
     if(i==num+1):   # 如果不加1那么最后一次将无法运行
         break
@@ -57,6 +58,7 @@ while True:
             elif(t==conf['retry']):
                 print("重试次数超过设定值，将不再重试！请检查网络连接！")
                 exit
+    all=all+1
     data=res.json() # 将获取到的结果转为json字符串
     temp_minus=len(temp)-1
     if temp_minus!=0:
@@ -66,7 +68,7 @@ while True:
             if(int(data["id"])==temp[t]):
                 dup=dup+1
                 print("发现已经抓取到的结果，正在丢弃……")
-                print("已完成数量："+str(i)+'，已经用时：'+str(end_Pro-start_Pro)+' ，重复次数 '+str(dup)+' 次，重复率 '+str(dup/i))
+                print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/i))
                 break
             elif(t==len(temp)-1):
                 print("未抓取过的结果，正在存入文件……")
@@ -120,7 +122,7 @@ while True:
                 append_csv(path)
                 temp.append(data["id"])
                 end_Pro=datetime.datetime.now()
-                print("已完成数量："+str(i)+'，已经用时：'+str(end_Pro-start_Pro)+' ，重复次数 '+str(dup)+' 次，重复率 '+str(dup/i))
+                print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/i))
                 i=i+1
                 break
     else:
@@ -174,7 +176,7 @@ while True:
         append_csv(path)
         temp.append(data["id"])
         end_Pro=datetime.datetime.now()
-        print("已完成数量："+str(i)+'，已经用时：'+str(end_Pro-start_Pro))
+        print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/i))
         i=i+1
 print('----------------------------------------------------------')
-print('已抓取完成！抓取数量'+str(i-1)+'，已经用时：'+str(end_Pro-start_Pro)+' ，重复次数 '+str(dup)+' 次，重复率 '+str(dup/i))
+print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率{}'.format(i,end_Pro-start_Pro,all,dup,dup/i))
