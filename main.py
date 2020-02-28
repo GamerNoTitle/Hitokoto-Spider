@@ -67,6 +67,7 @@ while True:
         for t in range(len(temp)):
             if(int(data["id"])==temp[t]):
                 dup=dup+1
+                end_Pro=datetime.datetime.now()
                 print("发现已经抓取到的结果，正在丢弃……")
                 print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/i))
                 break
