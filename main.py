@@ -180,4 +180,4 @@ while True:
         print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/i))
         i=i+1
 print('----------------------------------------------------------')
-print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率{}'.format(i,end_Pro-start_Pro,all,dup,dup/i))
+print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率{}'.format(num,end_Pro-start_Pro,all,dup,dup/i))
