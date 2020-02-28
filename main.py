@@ -151,6 +151,8 @@ while True:
                     inputs.append('null')
                 else:
                     inputs.append(data["from_who"])
+            except KeyError:
+                inputs.append('null')
         if(conf['creator']): inputs.append(data['creator'])
         if(conf['creator_uid']):
             try: 
