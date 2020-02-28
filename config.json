@@ -1,8 +1,9 @@
 {
     "path": "Hitokoto.csv",
-    "times": 3,
+    "times": 100,
     "delay": 0,
     "timeout": 60,
+    "retry": 3,
     "from": false,
     "from_who": false,
     "creator": false,

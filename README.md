@@ -17,9 +17,10 @@ $ pip install requests
 ```json
 {
     "path": "Hitokoto.csv",
-    "times": 3,
+    "times": 100,
     "delay": 0,
     "timeout": 60,
+    "retry": 3,
     "from": false,
     "from_who": false,
     "creator": false,
@@ -38,7 +39,9 @@ $ pip install requests
 
 ``delay``修改为每次抓取完成后等待的时长，单位为秒（参考一言的QPS做的这个选项）
 
-``timeout``改为http请求超时时间，单位为秒
+``timeout``为http请求超时时间，单位为秒
+
+``retry``表示重试次数，当返回的状态码不是200的时候会自动进行重试，支持任意非负整数
 
 ``from``表示来源，这个来源是作品，只支持true和false
 
@@ -54,7 +57,7 @@ $ pip install requests
 
 ``created_at``表示该条目提交的时间，一言返回的值为时间戳，我将它转成了``YYYY-MM-DD HH-MM-SS``的格式
 
-``duplicate``表示是否存入重复结果，设置为true则存入，设置为false则不存入，只支持true和false
+``duplicate``表示是否存入重复结果，设置为true则存入，设置为false则不存入，只支持true和false（还未完成）
 
 ``print``表示是否每次打印抓取到的结果在控制台，只支持true和false
 
@@ -75,6 +78,7 @@ $ pip install requests
 - [x] 自定义抓取数
 - [x] 自定义延时
 - [x] json配置文件支持
+- [x] 自动重连
 - [ ] 重复条目存入选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 打印抓取结果选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复率显示        [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)

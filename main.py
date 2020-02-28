@@ -47,6 +47,16 @@ while True:
     print("正在获取新的一言……")
     print("Fetching new Hitokoto......")
     res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+    if(res.status_code!=200):
+        print("获取失败，正在尝试重新获取……")
+        for t in range(conf['retry']):
+            print("正在尝试第"+str(t)+"次连接……")
+            res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout)
+            if(res.status_code==200):
+                break
+            elif(t==conf['retry']):
+                print("重试次数超过设定值，将不再重试！请检查网络连接！")
+                exit
     data=res.json() # 将获取到的结果转为json字符串
     temp_minus=len(temp)-1
     if temp_minus!=0:
