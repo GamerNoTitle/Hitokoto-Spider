@@ -90,7 +90,10 @@ while True:
                 if(conf['from']): inputs.append(data['from'])
                 if(conf["from_who"]): 
                     try:
-                        inputs.append(data["from_who"])
+                        if(data['from_who']==None)：
+                            inputs.append('null')
+                        else:
+                            inputs.append(data["from_who"])
                     except KeyError:
                         inputs.append("null")
                 if(conf['creator']): inputs.append(data['creator'])
@@ -144,9 +147,10 @@ while True:
         if(conf['from']): inputs.append(data['from'])
         if(conf["from_who"]): 
             try:
-                inputs.append(data["from_who"])
-            except KeyError:
-                inputs.append("null")
+                if(data['from_who']==None)：
+                    inputs.append('null')
+                else:
+                    inputs.append(data["from_who"])
         if(conf['creator']): inputs.append(data['creator'])
         if(conf['creator_uid']):
             try: 
