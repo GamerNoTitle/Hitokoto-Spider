@@ -90,7 +90,7 @@ while True:
                 if(conf['from']): inputs.append(data['from'])
                 if(conf["from_who"]): 
                     try:
-                        if(data['from_who']==None)：
+                        if(data['from_who']==None):
                             inputs.append('null')
                         else:
                             inputs.append(data["from_who"])
@@ -147,7 +147,7 @@ while True:
         if(conf['from']): inputs.append(data['from'])
         if(conf["from_who"]): 
             try:
-                if(data['from_who']==None)：
+                if(data['from_who']==None):
                     inputs.append('null')
                 else:
                     inputs.append(data["from_who"])
