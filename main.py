@@ -112,7 +112,6 @@ while True:
                         inputs.append(data['uuid'])
                     except KeyError:
                         inputs.append("null")
-                if(conf['creator']): inputs.append(data['creator'])
                 try:
                     timeArray = time.localtime(int(data['created_at']))
                     created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
@@ -169,7 +168,6 @@ while True:
                 inputs.append(data['uuid'])
             except KeyError:
                 inputs.append("null")
-        if(conf['creator']): inputs.append(data['creator'])
         try:
             timeArray = time.localtime(int(data['created_at']))
             created_at = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
