@@ -34,7 +34,8 @@ if(conf['creator_uid']): heads.append('creator_uid')
 if(conf['reviewer']): heads.append('reviewer')
 if(conf['uuid']): heads.append('uuid')
 if(conf['created_at']): heads.append("created_at")
-create_csv(path)
+if (os.path.exists(path)!=True):    # 判断文件是否存在，不存在则创建
+    create_csv(path)
 sorts=""
 i=1
 dup=0

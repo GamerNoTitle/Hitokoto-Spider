@@ -83,4 +83,7 @@ $ pip install requests
 - [x] 打印抓取结果选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复率显示        [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复抓取次数显示  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
-- [ ] GUI支持
+- [ ] Excel表格格式存储功能     [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [x] 在原有的表格上追加写入    [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [ ] 在追加写入的前提下去重    [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [ ] GUI支持   
