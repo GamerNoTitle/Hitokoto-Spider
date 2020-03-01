@@ -8,7 +8,7 @@ $ pip install requests
 ```
 来安装所需要的python库！爬取的链接为：https://international.v1.hitokoto.cn/
 
-已经实现在追加写入的前提下去重，现已支持断点续抓！ #3
+已经实现在追加写入的前提下去重，现已支持断点续抓！
 
 ## 打开方式
 
