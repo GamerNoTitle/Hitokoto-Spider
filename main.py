@@ -5,6 +5,7 @@ import os
 import datetime
 from array import array
 import time
+from requests.exceptions import ConnectionError, ReadTimeout
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
@@ -34,12 +35,21 @@ if(conf['creator_uid']): heads.append('creator_uid')
 if(conf['reviewer']): heads.append('reviewer')
 if(conf['uuid']): heads.append('uuid')
 if(conf['created_at']): heads.append("created_at")
+temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
 if (os.path.exists(path)!=True):    # 判断文件是否存在，不存在则创建
     create_csv(path)
+else:
+    file=open('Hitokoto.csv','r',encoding='utf8')
+    ids_in_file=csv.reader(file)
+    for id_in_file in ids_in_file:
+        try:
+            temp.append(int(id_in_file[0])) # 将文件中已有的id加入temp数组
+        except ValueError:
+            id_in_file[0] = 0   # 读取已有文件时"id"无法被识别为int型所以要去掉
+print(temp)
 sorts=""
 i=1
 dup=0
-temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
 all=0   # 总抓取次数
 while True:
     if(i==num+1):   # 如果不加1那么最后一次将无法运行
@@ -49,16 +59,6 @@ while True:
     print("正在获取新的一言……")
     print("Fetching new Hitokoto......")
     res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
-    if(res.status_code!=200):
-        print("获取失败，正在尝试重新获取……")
-        for t in range(conf['retry']):
-            print("正在尝试第"+str(t)+"次连接……")
-            res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout)
-            if(res.status_code==200):
-                break
-            elif(t==conf['retry']):
-                print("重试次数超过设定值，将不再重试！请检查网络连接！")
-                exit
     all=all+1
     data=res.json() # 将获取到的结果转为json字符串
     temp_minus=len(temp)-1
