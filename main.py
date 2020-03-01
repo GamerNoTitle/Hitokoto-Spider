@@ -39,8 +39,7 @@ temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
 if (os.path.exists(path)!=True):    # 判断文件是否存在，不存在则创建
     create_csv(path)
 else:
-    print('')
-    print('------------------断点续抓模式已开启！----------------------')
+    print('断点续抓模式已开启！')
     file=open(path,'r',encoding='utf8')
     ids_in_file=csv.reader(file)
     for id_in_file in ids_in_file:
