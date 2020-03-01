@@ -8,7 +8,7 @@ $ pip install requests
 ```
 来安装所需要的python库！爬取的链接为：https://international.v1.hitokoto.cn/
 
-已经实现在追加写入的前提下去重 #3
+已经实现在追加写入的前提下去重，现已支持断点续抓！ #3
 
 ## 打开方式
 
@@ -78,7 +78,7 @@ $ pip install requests
 - [x] 自定义抓取数
 - [x] 自定义延时
 - [x] json配置文件支持
-- [x] 自动重连
+- [x] 断点续抓
 - [ ] 重复条目存入选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 打印抓取结果选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复率显示        [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
