@@ -46,7 +46,6 @@ else:
             temp.append(int(id_in_file[0])) # 将文件中已有的id加入temp数组
         except ValueError:
             id_in_file[0] = 0   # 读取已有文件时"id"无法被识别为int型所以要去掉
-print(temp)
 sorts=""
 i=1
 dup=0
