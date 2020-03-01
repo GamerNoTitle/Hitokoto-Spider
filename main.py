@@ -51,7 +51,6 @@ i=1
 dup=0
 all=0   # 总抓取次数
 i=i+len(temp)
-all=all+len(temp)
 while True:
     if(i==num+1):   # 如果不加1那么最后一次将无法运行
         break
