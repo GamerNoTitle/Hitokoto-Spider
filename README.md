@@ -8,7 +8,7 @@ $ pip install requests
 ```
 来安装所需要的python库！爬取的链接为：https://international.v1.hitokoto.cn/
 
-已加入一言最新分类类别（#1），并简化代码
+已经实现在追加写入的前提下去重 #3
 
 ## 打开方式
 
@@ -85,5 +85,5 @@ $ pip install requests
 - [x] 重复抓取次数显示  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [ ] Excel表格格式存储功能     [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 在原有的表格上追加写入    [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
-- [ ] 在追加写入的前提下去重    [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [x] 在追加写入的前提下去重    [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [ ] GUI支持   
