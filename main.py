@@ -127,8 +127,8 @@ while True:
                 append_csv(path)
                 temp.append(data["id"])
                 end_Pro=datetime.datetime.now()
-                i=i+1
                 print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/all))
+                i=i+1
                 break
     else:
         if data["type"]== "a": sorts=("Anime")  # 自动把分类码还原为分类
@@ -183,7 +183,7 @@ while True:
         append_csv(path)
         temp.append(data["id"])
         end_Pro=datetime.datetime.now()
-        i=i+1
         print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/all))
+        i=i+1
 print('----------------------------------------------------------')
 print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率{}'.format(num,end_Pro-start_Pro,all,dup,dup/all))
