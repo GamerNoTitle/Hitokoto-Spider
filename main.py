@@ -54,7 +54,7 @@ sorts=""
 dup=0
 all=0   # 总抓取次数
 while True:
-    if(i>=num):   # 如果不加1那么最后一次将无法运行
+    if(i>=num+1):   # 如果不加1那么最后一次将无法运行
         break
     time.sleep(delay)
     print("----------------------------------------------------------")
@@ -72,7 +72,7 @@ while True:
                 dup=dup+1
                 end_Pro=datetime.datetime.now()
                 print("发现已经抓取到的结果，正在丢弃……")
-                print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i,num,end_Pro-start_Pro,all,dup,dup/all))
+                print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(len(temp)-1,num,end_Pro-start_Pro,all,dup,dup/all))
                 break
             elif(t==len(temp)-1):
                 print("未抓取过的结果，正在存入文件……")
@@ -128,7 +128,7 @@ while True:
                 append_csv(path)
                 temp.append(data["id"])
                 end_Pro=datetime.datetime.now()
-                print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i+1,num,end_Pro-start_Pro,all,dup,dup/all))
+                print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(len(temp)-1,num,end_Pro-start_Pro,all,dup,dup/all))
                 i=i+1
                 break
     else:
@@ -184,7 +184,7 @@ while True:
         append_csv(path)
         temp.append(data["id"])
         end_Pro=datetime.datetime.now()
-        print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(i+1,num,end_Pro-start_Pro,all,dup,dup/all))
+        print("已完成数量：{}/{}，已经用时：{} ，总抓取{}次，重复次数{}次，重复率{}".format(len(temp)-1,num,end_Pro-start_Pro,all,dup,dup/all))
         i=i+1
 end_Pro=datetime.datetime.now()
 print('----------------------------------------------------------')
