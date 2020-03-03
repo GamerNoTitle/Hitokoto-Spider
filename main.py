@@ -38,6 +38,7 @@ if(conf['created_at']): heads.append("created_at")
 temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
 if (os.path.exists(path)!=True):    # 判断文件是否存在，不存在则创建
     create_csv(path)
+    i=1
 else:
     print('断点续抓模式已开启！')
     file=open(path,'r',encoding='utf8')
@@ -47,11 +48,11 @@ else:
             temp.append(int(id_in_file[0])) # 将文件中已有的id加入temp数组
         except ValueError:
             id_in_file[0] = 0   # 读取已有文件时"id"无法被识别为int型所以要去掉
+        i=1
+        i=i+len(temp)
 sorts=""
-i=1
 dup=0
 all=0   # 总抓取次数
-i=i+len(temp)
 while True:
     if(i==num+1):   # 如果不加1那么最后一次将无法运行
         break
