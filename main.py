@@ -6,6 +6,8 @@ import datetime
 from array import array
 import time
 from requests.exceptions import ConnectionError, ReadTimeout
+import OpenSSL
+import socket
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
@@ -22,6 +24,12 @@ def read_config():
     with open("config.json") as json_file:
         config = js.load(json_file)
     return config
+def get_requests():
+    try:
+        res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+        return res
+    except:
+        return True
 conf = read_config()
 path = conf["path"]
 heads = ["id","sort","hitokoto"]
@@ -54,13 +62,25 @@ sorts=""
 dup=0
 all=0   # 总抓取次数
 while True:
-    if(i>=num+1):   # 如果不加1那么最后一次将无法运行
+    if(i>=num):   # 如果不加1那么最后一次将无法运行
         break
     time.sleep(delay)
     print("----------------------------------------------------------")
     print("正在获取新的一言……")
     print("Fetching new Hitokoto......")
-    res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+    result=get_requests()
+    if(result==True):
+        for t in range(conf['retry']):
+            print('获取失败，正在重试{}/{}'.format(t+1,str(conf['retry'])))
+            result=get_requests()
+            if(result!=True):
+                res=result
+                break
+            elif(i==conf['retry']):
+                print('已经超过设定的重试次数，将不再重试，请检查网络连接！')
+                exit
+    else:
+        res=result
     all=all+1
     data=res.json() # 将获取到的结果转为json字符串
     temp_minus=len(temp)-1

@@ -79,6 +79,7 @@ $ pip install requests
 - [x] 自定义延时
 - [x] json配置文件支持
 - [x] 断点续抓
+- [x] 连接错误重试
 - [ ] 重复条目存入选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 打印抓取结果选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复率显示        [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
