@@ -209,6 +209,6 @@ while True:
 end_Pro=datetime.datetime.now()
 print('----------------------------------------------------------')
 try:
-    print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率{}'.format(num-1,end_Pro-start_Pro,all,dup,dup/all))
+    print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率{}'.format(num,end_Pro-start_Pro,all,dup,dup/all))
 except ZeroDivisionError:
-    print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率0'.format(num-1,end_Pro-start_Pro,all,dup))
+    print('已抓取完成！抓取数量{}，用时{}，总抓取{}次，重复{}次，重复率0'.format(num,end_Pro-start_Pro,all,dup))
