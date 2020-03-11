@@ -5,9 +5,6 @@ import os
 import datetime
 from array import array
 import time
-from requests.exceptions import ConnectionError, ReadTimeout
-import OpenSSL
-import socket
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
 def create_csv(path):
