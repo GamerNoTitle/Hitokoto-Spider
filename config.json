@@ -1,16 +1,16 @@
 {
     "path": "Hitokoto.csv",
-    "times": 3,
+    "times": 100,
     "delay": 0,
     "timeout": 60,
     "retry": 3,
-    "from": false,
-    "from_who": false,
-    "creator": false,
-    "creator_uid": false,
-    "reviewer": false,
-    "uuid": false,
-    "created_at": false,
-    "duplicate": false,
-    "print": false
+    "from": true,
+    "from_who": true,
+    "creator": true,
+    "creator_uid": true,
+    "reviewer": true,
+    "uuid": true,
+    "created_at": true,
+    "duplicate": true,
+    "print": true
 }
