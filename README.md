@@ -17,7 +17,7 @@ $ pip install requests
 ```json
 {
     "path": "Hitokoto.csv",
-    "times": 3,
+    "times": "all",
     "delay": 0,
     "timeout": 60,
     "retry": 3,
@@ -35,7 +35,7 @@ $ pip install requests
 
 ``path``修改为你要输出的文件路径，必须自己带后缀且必须为csv
 
-``times``修改为抓取条数，如果你的目录下有已经抓取过的文件，会进入断点续抓模式，例如我需要抓2000条，文件中已经有1000条记录，则只会抓取1000条
+``times``修改为抓取条数，如果你的目录下有已经抓取过的文件，会进入断点续抓模式，例如我需要抓2000条，文件中已经有1000条记录，则只会抓取1000条，也可以填作"all"（即默认值，来抓取所有的一言条目）
 
 ``delay``修改为每次抓取完成后等待的时长，单位为秒（参考一言的QPS做的这个选项）
 
@@ -80,7 +80,7 @@ $ pip install requests
 - [x] json配置文件支持
 - [x] 断点续抓
 - [x] 连接错误重试
-- [ ] 重复条目存入选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
+- [x] 重复条目存入选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 打印抓取结果选项  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复率显示        [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)
 - [x] 重复抓取次数显示  [#3](https://github.com/GamerNoTitle/Hitokoto-Spider/issues/3)

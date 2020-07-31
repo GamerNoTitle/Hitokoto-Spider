@@ -7,6 +7,7 @@ from array import array
 import time
 # 程序运行时间开始
 start_Pro=datetime.datetime.now()
+failed=False
 def create_csv(path):
     with open(path,"w+",newline="",encoding="utf8") as file:    # 打开文件，也相当于一个回车，避免覆盖文档
         csv_file = csv.writer(file)
@@ -21,16 +22,25 @@ def read_config():
     with open("config.json") as json_file:
         config = js.load(json_file)
     return config
+
+def get_num():
+    status=r.get('https://status.hitokoto.cn/',timeout=timeout).json()
+    print(type(status))
+    num=status['status']['hitokoto']['total']
+    return num
+
 def get_requests():
+    global failed
     try:
         res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+        failed=False
         return res
     except:
-        return True
+        failed=True
+        return None
 conf = read_config()
 path = conf["path"]
 heads = ["id","sort","hitokoto"]
-num = int(conf["times"])
 delay = int(conf["delay"])
 timeout = int(conf['timeout'])
 if(conf['from']): heads.append("from")
@@ -40,6 +50,10 @@ if(conf['creator_uid']): heads.append('creator_uid')
 if(conf['reviewer']): heads.append('reviewer')
 if(conf['uuid']): heads.append('uuid')
 if(conf['created_at']): heads.append("created_at")
+if str(conf['times']) == 'all':
+    num=get_num()
+else:
+    num = int(conf["times"])
 temp=array('i',[0])   # 初始化temp变量，用于放置已抓取的ID
 if (os.path.exists(path)!=True):    # 判断文件是否存在，不存在则创建
     create_csv(path)
@@ -65,19 +79,19 @@ while True:
     print("----------------------------------------------------------")
     print("正在获取新的一言……")
     print("Fetching new Hitokoto......")
-    result=get_requests()
-    if(result==True):
-        for t in range(conf['retry']):
-            print('获取失败，正在重试{}/{}'.format(t+1,str(conf['retry'])))
-            result=get_requests()
-            if(result!=True):
-                res=result
-                break
-            elif(i==conf['retry']):
-                print('已经超过设定的重试次数，将不再重试，请检查网络连接！')
-                exit
-    else:
-        res=result
+    tried=0
+    while True:
+        tried+=1
+        print('抓取尝试次数{}/{}'.format(tried,conf['retry']))
+        result=get_requests()
+        if failed==False: 
+            break
+        elif(tried>=conf['retry']): 
+            print('已经超过设定的重试次数，将不再重试，请检查网络连接！')
+            os._exit()
+        else:
+            None
+    res=result
     all=all+1
     data=res.json() # 将获取到的结果转为json字符串
     temp_minus=len(temp)-1
