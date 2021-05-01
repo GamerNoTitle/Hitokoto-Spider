@@ -24,15 +24,15 @@ def read_config():
     return config
 
 def get_num():
-    status=r.get('https://status.hitokoto.cn/',timeout=timeout).json()
+    status=r.get('https://status.hitokoto.cn/v1/statistic',timeout=timeout).json()
     print(type(status))
-    num=status['status']['hitokoto']['total']
+    num=status['data']['status']['hitokoto']['total']
     return num
 
 def get_requests():
     global failed
     try:
-        res = r.get('https://international.v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
+        res = r.get('https://v1.hitokoto.cn/',timeout=timeout) # 得到服务器回应，此时回应的内容为json文件（res.text）和状态码
         failed=False
         return res
     except:
@@ -67,8 +67,8 @@ else:
             temp.append(int(id_in_file[0])) # 将文件中已有的id加入temp数组
         except ValueError:
             id_in_file[0] = 0   # 读取已有文件时"id"无法被识别为int型所以要去掉
-        i=0
-        i=i+len(temp)
+    i=0
+    i=i+len(temp)
 sorts=""
 dup=0
 all=0   # 总抓取次数
