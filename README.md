@@ -65,7 +65,7 @@ $ pip install requests
 
 **如果你要用Excel查看文件，请务必先用vscode之类的软件将文件以UTF-8的编码方式打开，以gbk编码保存，否则会乱码！！！**
 
-开发日记已发布到http://bili33.top/2020/02/11/Hitokoto-Spider/
+开发日记已发布到http://bili33.top/posts/Hitokoto-Spider/
 
 高中生无聊时做的，望大佬指教！
 
